@@ -10,6 +10,68 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+  --font-poppins: var(--font-poppins);
+  --font-playfair: var(--font-playfair);
+  --font-roboto: var(--font-roboto);
+  --font-open-sans: var(--font-open-sans);
+  --font-montserrat: var(--font-montserrat);
+  --font-lato: var(--font-lato);
+  --font-raleway: var(--font-raleway);
+  --font-dancing-script: var(--font-dancing-script);
+  --font-pacifico: var(--font-pacifico);
+  --font-great-vibes: var(--font-great-vibes);
+  --font-satisfy: var(--font-satisfy);
+  --font-kaushan-script: var(--font-kaushan-script);
+  --font-allura: var(--font-allura);
+  --font-alex-brush: var(--font-alex-brush);
+  --font-tangerine: var(--font-tangerine);
+  --font-lobster: var(--font-lobster);
+  --font-bebas-neue: var(--font-bebas-neue);
+  --font-oswald: var(--font-oswald);
+  --font-anton: var(--font-anton);
+  --font-righteous: var(--font-righteous);
+  --font-orbitron: var(--font-orbitron);
+  --font-audiowide: var(--font-audiowide);
+  --font-exo-2: var(--font-exo-2);
+  --font-nunito: var(--font-nunito);
+  --font-quicksand: var(--font-quicksand);
+  --font-comfortaa: var(--font-comfortaa);
+  --font-bangers: var(--font-bangers);
+  --font-permanent-marker: var(--font-permanent-marker);
+  --font-caveat: var(--font-caveat);
+  --font-indie-flower: var(--font-indie-flower);
+  --font-shadows-into-light: var(--font-shadows-into-light);
+  --font-architects-daughter: var(--font-architects-daughter);
+  --font-gloria-hallelujah: var(--font-gloria-hallelujah);
+  --font-patrick-hand: var(--font-patrick-hand);
+  --font-rock-salt: var(--font-rock-salt);
+  --font-covered-by-your-grace: var(--font-covered-by-your-grace);
+  --font-kalam: var(--font-kalam);
+  --font-just-another-hand: var(--font-just-another-hand);
+  --font-homemade-apple: var(--font-homemade-apple);
+  --font-sacramento: var(--font-sacramento);
+  --font-marck-script: var(--font-marck-script);
+  --font-yellowtail: var(--font-yellowtail);
+  --font-srisakdi: var(--font-srisakdi);
+  --font-calligraffitti: var(--font-calligraffitti);
+  --font-reenie-beanie: var(--font-reenie-beanie);
+  --font-over-the-rainbow: var(--font-over-the-rainbow);
+  --font-amatic-sc: var(--font-amatic-sc);
+  --font-shadows-into-light-two: var(--font-shadows-into-light-two);
+  --font-coming-soon: var(--font-coming-soon);
+  --font-vt323: var(--font-vt323);
+  --font-press-start-2p: var(--font-press-start-2p);
+  --font-fira-code: var(--font-fira-code);
+  --font-jetbrains-mono: var(--font-jetbrains-mono);
+  --font-source-code-pro: var(--font-source-code-pro);
+  --font-ibm-plex-mono: var(--font-ibm-plex-mono);
+  --font-space-mono: var(--font-space-mono);
+  --font-ubuntu-mono: var(--font-ubuntu-mono);
+  --font-anonymous-pro: var(--font-anonymous-pro);
+  --font-courier-prime: var(--font-courier-prime);
+  --font-inconsolata: var(--font-inconsolata);
+  --font-custom: var(--font-custom);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +84,525 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+/* Font Utility Classes */
+.font-geist-sans {
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+.font-geist-mono {
+  font-family: var(--font-geist-mono), monospace;
+}
+
+.font-inter {
+  font-family: var(--font-inter), sans-serif;
+}
+
+.font-poppins {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.font-playfair {
+  font-family: var(--font-playfair), serif;
+}
+
+.font-roboto {
+  font-family: var(--font-roboto), sans-serif;
+}
+
+.font-open-sans {
+  font-family: var(--font-open-sans), sans-serif;
+}
+
+.font-montserrat {
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.font-lato {
+  font-family: var(--font-lato), sans-serif;
+}
+
+.font-raleway {
+  font-family: var(--font-raleway), sans-serif;
+}
+
+/* Cursive and Script Fonts */
+.font-dancing-script {
+  font-family: var(--font-dancing-script), cursive;
+}
+
+.font-pacifico {
+  font-family: var(--font-pacifico), cursive;
+}
+
+.font-great-vibes {
+  font-family: var(--font-great-vibes), cursive;
+}
+
+.font-satisfy {
+  font-family: var(--font-satisfy), cursive;
+}
+
+.font-kaushan-script {
+  font-family: var(--font-kaushan-script), cursive;
+}
+
+.font-allura {
+  font-family: var(--font-allura), cursive;
+}
+
+.font-alex-brush {
+  font-family: var(--font-alex-brush), cursive;
+}
+
+.font-tangerine {
+  font-family: var(--font-tangerine), cursive;
+}
+
+.font-lobster {
+  font-family: var(--font-lobster), cursive;
+}
+
+/* Display and Decorative Fonts */
+.font-bebas-neue {
+  font-family: var(--font-bebas-neue), sans-serif;
+}
+
+.font-oswald {
+  font-family: var(--font-oswald), sans-serif;
+}
+
+.font-anton {
+  font-family: var(--font-anton), sans-serif;
+}
+
+.font-righteous {
+  font-family: var(--font-righteous), cursive;
+}
+
+.font-orbitron {
+  font-family: var(--font-orbitron), sans-serif;
+}
+
+.font-audiowide {
+  font-family: var(--font-audiowide), cursive;
+}
+
+.font-exo-2 {
+  font-family: var(--font-exo-2), sans-serif;
+}
+
+.font-nunito {
+  font-family: var(--font-nunito), sans-serif;
+}
+
+.font-quicksand {
+  font-family: var(--font-quicksand), sans-serif;
+}
+
+.font-comfortaa {
+  font-family: var(--font-comfortaa), cursive;
+}
+
+.font-bangers {
+  font-family: var(--font-bangers), cursive;
+}
+
+.font-permanent-marker {
+  font-family: var(--font-permanent-marker), cursive;
+}
+
+.font-caveat {
+  font-family: var(--font-caveat), cursive;
+}
+
+.font-indie-flower {
+  font-family: var(--font-indie-flower), cursive;
+}
+
+.font-shadows-into-light {
+  font-family: var(--font-shadows-into-light), cursive;
+}
+
+.font-architects-daughter {
+  font-family: var(--font-architects-daughter), cursive;
+}
+
+.font-gloria-hallelujah {
+  font-family: var(--font-gloria-hallelujah), cursive;
+}
+
+.font-patrick-hand {
+  font-family: var(--font-patrick-hand), cursive;
+}
+
+.font-rock-salt {
+  font-family: var(--font-rock-salt), cursive;
+}
+
+.font-covered-by-your-grace {
+  font-family: var(--font-covered-by-your-grace), cursive;
+}
+
+.font-kalam {
+  font-family: var(--font-kalam), cursive;
+}
+
+.font-just-another-hand {
+  font-family: var(--font-just-another-hand), cursive;
+}
+
+.font-homemade-apple {
+  font-family: var(--font-homemade-apple), cursive;
+}
+
+.font-sacramento {
+  font-family: var(--font-sacramento), cursive;
+}
+
+.font-marck-script {
+  font-family: var(--font-marck-script), cursive;
+}
+
+.font-yellowtail {
+  font-family: var(--font-yellowtail), cursive;
+}
+
+.font-srisakdi {
+  font-family: var(--font-srisakdi), cursive;
+}
+
+.font-calligraffitti {
+  font-family: var(--font-calligraffitti), cursive;
+}
+
+.font-reenie-beanie {
+  font-family: var(--font-reenie-beanie), cursive;
+}
+
+.font-over-the-rainbow {
+  font-family: var(--font-over-the-rainbow), cursive;
+}
+
+.font-amatic-sc {
+  font-family: var(--font-amatic-sc), cursive;
+}
+
+.font-shadows-into-light-two {
+  font-family: var(--font-shadows-into-light-two), cursive;
+}
+
+.font-coming-soon {
+  font-family: var(--font-coming-soon), cursive;
+}
+
+/* Monospace Fonts */
+.font-vt323 {
+  font-family: var(--font-vt323), monospace;
+}
+
+.font-press-start-2p {
+  font-family: var(--font-press-start-2p), cursive;
+}
+
+.font-fira-code {
+  font-family: var(--font-fira-code), monospace;
+}
+
+.font-jetbrains-mono {
+  font-family: var(--font-jetbrains-mono), monospace;
+}
+
+.font-source-code-pro {
+  font-family: var(--font-source-code-pro), monospace;
+}
+
+.font-ibm-plex-mono {
+  font-family: var(--font-ibm-plex-mono), monospace;
+}
+
+.font-space-mono {
+  font-family: var(--font-space-mono), monospace;
+}
+
+.font-ubuntu-mono {
+  font-family: var(--font-ubuntu-mono), monospace;
+}
+
+.font-anonymous-pro {
+  font-family: var(--font-anonymous-pro), monospace;
+}
+
+.font-courier-prime {
+  font-family: var(--font-courier-prime), monospace;
+}
+
+.font-inconsolata {
+  font-family: var(--font-inconsolata), monospace;
+}
+
+/* .font-custom {
+  font-family: var(--font-custom), sans-serif;
+} */
+
+/* Font Weight Utilities */
+.font-thin {
+  font-weight: 100;
+}
+
+.font-extralight {
+  font-weight: 200;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.font-black {
+  font-weight: 900;
+}
+
+/* Typography Scale */
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
+}
+
+.text-9xl {
+  font-size: 8rem;
+  line-height: 1;
+}
+
+/* Letter Spacing */
+.tracking-tighter {
+  letter-spacing: -0.05em;
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+.tracking-normal {
+  letter-spacing: 0em;
+}
+
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.tracking-widest {
+  letter-spacing: 0.1em;
+}
+
+/* Line Height */
+.leading-none {
+  line-height: 1;
+}
+
+.leading-tight {
+  line-height: 1.25;
+}
+
+.leading-snug {
+  line-height: 1.375;
+}
+
+.leading-normal {
+  line-height: 1.5;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+.leading-loose {
+  line-height: 2;
+}
+
+/* Text Alignment */
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+/* Text Transform */
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.normal-case {
+  text-transform: none;
+}
+
+/* Text Decoration */
+.underline {
+  text-decoration: underline;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+/* Font Style */
+.italic {
+  font-style: italic;
+}
+
+.not-italic {
+  font-style: normal;
+}
+
+/* Common Typography Combinations */
+.heading-primary {
+  font-family: var(--font-playfair), serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.heading-secondary {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 600;
+  font-size: 1.875rem;
+  line-height: 1.3;
+}
+
+.heading-tertiary {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.body-text {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.body-text-large {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.caption {
+  font-family: var(--font-roboto), sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.mono-text {
+  font-family: var(--font-geist-mono), monospace;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
