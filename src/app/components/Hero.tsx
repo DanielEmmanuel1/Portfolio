@@ -419,7 +419,7 @@ const Hero = () => {
                         height={40}
                         className="inline-block mx-2 align-middle"
                     />
-                    , a passionate <span>Content creator</span> and storyteller who turns ideas into engaging content, balancing corporate life at Miva
+                    , a passionate <span className="text-[#cfab8d]">Content </span>creator and  <span className="text-[#33A1E0]">storyteller</span> who turns ideas into <span className="text-amber-400">engaging</span> content, balancing corporate life at Miva
                     <Image
                         ref={mivaIconRef}
                         src="/mivaa.png"
@@ -445,7 +445,7 @@ const Hero = () => {
                     height={24}
                     className="inline-block mx-1 align-middle w-12 h-5 md:w-16 md:h-6"
                 />
-                , a passionate <span className="text-white">Content creator</span> and <span className="text-white">storyteller</span> who turns <span className="text-white">idea</span> into <span className="text-white">engaging</span> content, balancing corporate life at Miva
+                , a passionate <span className="text-[#CFAB8D]">Content </span>creator and <span className="text-[#33A1E0]">storyteller</span> who turns <span className="text-red-400">idea</span> into <span className="text-amber-300">engaging</span> content, balancing corporate life at Miva
                 <Image
                     src="/mivaa.png"
                     alt="Miva"
