@@ -18,11 +18,13 @@ const Navbar = () => {
     const mobileMenuItemsRef = useRef<(HTMLLIElement | null)[]>([]);
     const mobileOverlayRef = useRef<HTMLDivElement>(null);
     const hamburgerRef = useRef<HTMLButtonElement>(null);
+    const mobileNavbarRef = useRef<HTMLElement>(null);
 
-    useEffect(() => {
+        useEffect(() => {
         const rose1 = rose1Ref.current;
         const rose2 = rose2Ref.current;
         const diary = diaryRef.current;
+        const mobileNavbar = mobileNavbarRef.current;
 
         if (!rose1 || !rose2 || !diary) return;
 
@@ -48,9 +50,25 @@ const Navbar = () => {
             x: -50 // Start from left like rose1
         });
 
+        // Mobile navbar animation - slide from top
+        if (mobileNavbar && window.innerWidth < 768) {
+            gsap.set(mobileNavbar, {
+                y: -100,
+                opacity: 0
+            });
+
+            gsap.to(mobileNavbar, {
+                y: 0,
+                opacity: 1,
+                duration: 1.2,
+                ease: "back.out(2)",
+                delay: 0.3
+            });
+        }
+
         // Page load animation for logo images
         const logoAnimation = gsap.timeline();
-
+        
         logoAnimation.to([rose1, rose2, diary], {
             opacity: 1,
             scale: 1,
@@ -60,17 +78,17 @@ const Navbar = () => {
             ease: "back.out(1.7)",
             stagger: 0.2
         })
-            .to([rose1, rose2, diary], {
-                rotation: 5,
-                duration: 0.6,
-                ease: "power2.inOut",
-                yoyo: true,
-                repeat: -1
-            }, "-=0.8");
+        .to([rose1, rose2, diary], {
+            rotation: 5,
+            duration: 0.6,
+            ease: "power2.inOut",
+            yoyo: true,
+            repeat: -1
+        }, "-=0.8");
 
         // Menu animations
         const menuItems = menuRefs.current.filter(Boolean);
-
+        
         // Initial state for menu items
         gsap.set(menuItems, {
             opacity: 0,
@@ -91,7 +109,7 @@ const Navbar = () => {
 
         // Menu hover effects
         const cleanupFunctions: (() => void)[] = [];
-
+        
         menuItems.forEach((item, index) => {
             if (!item) return;
 
@@ -235,7 +253,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="flex items-center justify-between py-10 px-10 md:p-16 relative">
+        <nav ref={mobileNavbarRef} className="flex items-center justify-between py-10 px-10 md:p-16 relative">
             {/* Logo */}
             <div ref={logoRef} className="relative hidden md:block">
                 <div className="cursor-pointer">
@@ -325,7 +343,7 @@ const Navbar = () => {
             <button
                 ref={hamburgerRef}
                 onClick={toggleMobileMenu}
-                className="md:hidden text-gray-300 hover:text-white transition-colors duration-300 z-50 bg-[#1C1C18] p-3 rounded-full"
+                className="md:hidden text-gray-300 hover:text-white transition-colors duration-300 z-[9997] bg-[#1C1C18] p-3 rounded-full"
             >
                 {isMobileMenuOpen ? (
                     <XMarkIcon className="w-6 h-6" />
@@ -337,21 +355,21 @@ const Navbar = () => {
             {/* Mobile Menu Overlay */}
             <div
                 ref={mobileOverlayRef}
-                className="md:hidden fixed inset-0 bg-black z-40 opacity-0 pointer-events-none scale-95"
+                className="md:hidden fixed inset-0 bg-black z-[9998] opacity-0 pointer-events-none scale-95"
                 onClick={toggleMobileMenu}
             />
 
             {/* Mobile Menu Full Screen */}
             <div
                 ref={mobileMenuRef}
-                className="md:hidden fixed inset-0 bg-[#0a0a0a] z-50 opacity-0 scale-95 flex items-center justify-center"
+                className="md:hidden fixed inset-0 bg-[#0a0a0a] z-[9999] opacity-0 scale-95 flex items-center justify-center"
             >
                 <div className="flex flex-col items-center justify-center h-full w-full p-8 relative">
-                    {/* Close Button */}
-                    <button
-                        onClick={toggleMobileMenu}
-                        className="absolute top-8 right-8 p-2 text-white hover:text-gray-300 transition-colors duration-300 z-50"
-                    >
+                                         {/* Close Button */}
+                     <button
+                         onClick={toggleMobileMenu}
+                         className="absolute top-8 right-8 p-2 text-white hover:text-gray-300 transition-colors duration-300 z-[10000]"
+                     >
                         <XMarkIcon className="w-8 h-8" />
                     </button>
 
