@@ -9,13 +9,20 @@ const Hero = () => {
     const scrappbRef = useRef<HTMLImageElement>(null);
     const scrapbRef = useRef<HTMLImageElement>(null);
     const scrapyRef = useRef<HTMLImageElement>(null);
-    const luzRef = useRef<HTMLImageElement>(null);
+    // const luzRef = useRef<HTMLImageElement>(null);
 
     // Stacked card refs
     const card1Ref = useRef<HTMLImageElement>(null);
     const card2Ref = useRef<HTMLImageElement>(null);
     const card3Ref = useRef<HTMLImageElement>(null);
     const cardContainerRef = useRef<HTMLDivElement>(null);
+
+    // Text and icon refs
+    const introTextRef = useRef<HTMLDivElement>(null);
+    const debbyIconRef = useRef<HTMLImageElement>(null);
+    const mivaIconRef = useRef<HTMLImageElement>(null);
+    const poemTextRef = useRef<HTMLDivElement>(null);
+    const claudeIconRef = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
         const scrapd = scrapdRef.current;
@@ -28,7 +35,7 @@ const Hero = () => {
         const card3 = card3Ref.current;
         const cardContainer = cardContainerRef.current;
 
-        if (!scrapd || !scrape || !scrappb || !scrapb || !scrapy || !card1 || !card2 || !card3) return;
+        if (!scrapd || !scrape || !scrappb || !card1 || !card2 || !card3) return;
 
         // 1. LETTERS ANIMATION: Smooth upscale flow from left to right
         gsap.set([scrapd, scrape, scrappb, scrapb, scrapy], {
@@ -228,59 +235,117 @@ const Hero = () => {
 
     return (
         <div className="relative">
-            <div className="flex gap-5 items-center justify-center">
-                <Image
-                    ref={scrapdRef}
-                    src="/scrapd.png"
-                    alt="Hero"
-                    width={270}
-                    height={600}
-                    className="transform -rotate-10 cursor-pointer hover:scale-150"
-                />
-                <Image
-                    ref={scrapeRef}
-                    src="/scrape.png"
-                    alt="Hero"
-                    width={270}
-                    height={600}
-                    className="transform -rotate-10 cursor-pointer hover:scale-150"
-                />
-                <Image
-                    ref={scrappbRef}
-                    src="/scrappb.png"
-                    alt="Hero"
-                    width={270}
-                    height={600}
-                    className="transform -rotate-10 cursor-pointer hover:scale-150"
-                />
-                <Image
-                    ref={scrapbRef}
-                    src="/scrapb.png"
-                    alt="Hero"
-                    width={270}
-                    height={600}
-                    className="transform -rotate-[-60deg] cursor-pointer hover:scale-150"
-                />
-                <Image
-                    ref={scrapyRef}
-                    src="/scrapy.png"
-                    alt="Hero"
-                    width={240}
-                    height={600}
-                    className="transform -rotate-[-10deg] cursor-pointer hover:scale-150"
-                />
+            {/* Letters Section - Mobile Stacked, Desktop Row */}
+            <div className="relative flex justify-center items-center">
+                {/* Mobile: Stacked overlapping letters */}
+                <div className="md:hidden relative w-[300px] h-[400px]">
+                    <Image
+                        ref={scrapdRef}
+                        src="/scrapd.png"
+                        alt="Hero"
+                        width={270}
+                        height={600}
+                        className="absolute top-0 left-0 transform -rotate-10 cursor-pointer hover:scale-150 w-[150px] h-[150px] object-cover"
+                        style={{ zIndex: 30 }}
+                    />
+                    <Image
+                        ref={scrapeRef}
+                        src="/scrape.png"
+                        alt="Hero"
+                        width={270}
+                        height={600}
+                        className="absolute md:top-8 md:right-0 bottom-0 right-0 transform -rotate-5 cursor-pointer hover:scale-150 w-[150px] h-[150px] object-cover"
+                        style={{ zIndex: 20 }}
+                    />
+                </div>
+
+                {/* Desktop: Row layout */}
+                <div className="hidden md:flex gap-5 items-center justify-center">
+                    <Image
+                        ref={scrapdRef}
+                        src="/scrapd.png"
+                        alt="Hero"
+                        width={270}
+                        height={600}
+                        className="transform -rotate-10 cursor-pointer hover:scale-150 w-[270px]"
+                    />
+                    <Image
+                        ref={scrapeRef}
+                        src="/scrape.png"
+                        alt="Hero"
+                        width={270}
+                        height={600}
+                        className="transform -rotate-10 cursor-pointer hover:scale-150 w-[270px]"
+                    />
+                    <Image
+                        ref={scrappbRef}
+                        src="/scrappb.png"
+                        alt="Hero"
+                        width={270}
+                        height={600}
+                        className="transform -rotate-10 cursor-pointer hover:scale-150 w-[270px]"
+                    />
+                    <Image
+                        ref={scrapbRef}
+                        src="/scrapb.png"
+                        alt="Hero"
+                        width={270}
+                        height={600}
+                        className="transform -rotate-[-60deg] cursor-pointer hover:scale-150 w-[270px]"
+                    />
+                    <Image
+                        ref={scrapyRef}
+                        src="/scrapy.png"
+                        alt="Hero"
+                        width={240}
+                        height={600}
+                        className="transform -rotate-[-10deg] cursor-pointer hover:scale-150 w-[240px]"
+                    />
+                </div>
             </div>
 
-            {/* Stacked Cards */}
-            <div className="flex items-center justify-center mt-[-90px]">
-                <div ref={cardContainerRef} className="relative w-[550px] h-[600px] cursor-pointer group">
+            {/* Stacked Cards - Mobile Stacked, Desktop Single */}
+            <div className="flex justify-center items-center mt-8 md:mt-[-90px]">
+                {/* Mobile: Stacked overlapping cards */}
+                <div className="md:hidden relative w-[280px] h-[320px]">
+                    <Image
+                        ref={card1Ref}
+                        src="/luv.png"
+                        alt="Card 1"
+                        width={280}
+                        height={320}
+                        className="absolute top-0 left-0 transform -rotate-8 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg w-full h-full object-cover"
+                        style={{ zIndex: 30 }}
+                    />
+                    <Image
+                        ref={card2Ref}
+                        src="/gele.png"
+                        alt="Card 2"
+                        width={280}
+                        height={320}
+                        className="absolute top-4 left-2 transform -rotate-12 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg w-[90%] h-[90%] object-cover"
+                        style={{ zIndex: 20 }}
+                    />
+                    <Image
+                        ref={card3Ref}
+                        src="/blouse.png"
+                        alt="Card 3"
+                        width={280}
+                        height={320}
+                        className="absolute top-8 left-4 transform -rotate-16 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg w-[80%] h-[80%] object-cover"
+                        style={{ zIndex: 10 }}
+                    />
+                </div>
+
+                {/* Desktop: Original stacked cards */}
+                <div ref={cardContainerRef} className="hidden md:block relative w-[550px] h-[600px] cursor-pointer group">
                     <Image
                         ref={card1Ref}
                         src="/luv.png"
                         alt="Card 1"
                         width={550}
                         height={600}
-                        className="transform -rotate-5 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg absolute top-0 left-0"
+                        className="transform -rotate-5 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg absolute top-0 left-0 w-full h-full object-cover"
                         style={{ zIndex: 10 }}
                     />
                     <Image
@@ -289,7 +354,7 @@ const Hero = () => {
                         alt="Card 2"
                         width={550}
                         height={600}
-                        className="transform -rotate-12 hover:-rotate-10 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg absolute top-0 left-0 translate-y-[-8px] scale-95"
+                        className="transform -rotate-12 hover:-rotate-10 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg absolute top-0 left-0 translate-y-[-8px] scale-95 w-full h-full object-cover"
                         style={{ zIndex: 20 }}
                     />
                     <Image
@@ -298,24 +363,58 @@ const Hero = () => {
                         alt="Card 3"
                         width={550}
                         height={600}
-                        className="transform -rotate-18 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg absolute top-0 left-0 translate-y-[-16px] scale-90"
+                        className="transform -rotate-18 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg absolute top-0 left-0 translate-y-[-16px] scale-90 w-full h-full object-cover"
                         style={{ zIndex: 30 }}
                     />
                 </div>
             </div>
 
-            <div className="absolute bottom-[-20px] left-60">
-                <p className="text-center font-architects-daughter text-2xl font-bold w-[500px]">
+            <div ref={introTextRef} className="absolute bottom-[-20px] left-60 cursor-pointer hidden md:block">
+                <div className="text-center font-architects-daughter text-2xl font-bold w-[500px]">
                     Hi, I&apos;m Deborah
                     <Image
+                        ref={debbyIconRef}
                         src="/debby.png"
                         alt="Deborah"
                         width={100}
                         height={40}
                         className="inline-block mx-2 align-middle"
                     />
-                    , a passionate <span>Content creator</span> and storyteller who turns ideas into engaging content, balancing corporate life at Miva University with creative pursuits.
-                </p>
+                    , a passionate <span>Content creator</span> and storyteller who turns ideas into engaging content, balancing corporate life at Miva
+                    <Image
+                        ref={mivaIconRef}
+                        src="/mivaa.png"
+                        alt="Deborah"
+                        width={30}
+                        height={40}
+                        className="inline-block mx-2 align-middle"
+                    />
+                    University with creative pursuits.
+                </div>
+            </div>
+
+            {/* poeams */}
+            <div className="absolute top-[400px] right-60 hidden md:block">
+                <div className="text-center font-architects-daughter w-[500px]">
+                    <div className="text-lg leading-relaxed italic font-light mb-4">
+                        <p>I collect fragments of forgotten light,</p>
+                        <p>weave them into stories that breathe—</p>
+                        <p>each word a brushstroke against silence,</p>
+                        <p>each sentence a door left ajar</p>
+                        <p>for wonder to slip through.</p>
+                    </div>
+
+                    <div className="mt-4 flex items-center justify-center">
+                        <span className="text-xl"><span className="text-3xl">-</span> Claude</span>
+                        <Image
+                            src="/claude.png"
+                            alt="Miva University"
+                            width={30}
+                            height={40}
+                            className="inline-block ml-2 align-middle"
+                        />
+                    </div>
+                </div>
             </div>
         </div>
     );

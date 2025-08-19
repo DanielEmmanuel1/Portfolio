@@ -124,7 +124,7 @@ const Navbar = () => {
     return (
         <nav className="flex items-center justify-between p-16">
             {/* Logo */}
-            <div ref={logoRef} className="relative">
+            <div ref={logoRef} className="relative hidden md:block">
                 <div className="cursor-pointer">
                     <p className="text-4xl font-light font-great-vibes text-gray-300">Deborah</p>
                     <p className="text-4xl font-light ml-8 font-dancing-script -mt-4 text-gray-300">Emmanuel</p>
@@ -155,33 +155,8 @@ const Navbar = () => {
                 />
             </div>
 
-            {/* Menu */}
-            <div className="flex gap-8">
-                <ul className="flex items-center gap-16 font-inter">
-                    <li 
-                        ref={(el) => { menuRefs.current[0] = el; }}
-                        className="font-medium cursor-pointer text-gray-300 hover:text-white transition-colors duration-300 grayscale-0"
-                    >
-                        Tales of the City
-                    </li>
-                    <li 
-                        ref={(el) => { menuRefs.current[1] = el; }}
-                        className="font-medium cursor-pointer text-gray-300 hover:text-white transition-colors duration-300 grayscale-0"
-                    >
-                        Studio
-                    </li>
-                    <li 
-                        ref={(el) => { menuRefs.current[2] = el; }}
-                        className="font-medium cursor-pointer text-gray-300 hover:text-white transition-colors duration-300 grayscale-0"
-                    >
-                        Reach me
-                    </li>
-                </ul>
-            </div>
-
-
             {/* Socials */}
-            <div className="flex gap-8">
+            {/* <div className="flex gap-8">
                 <Image
                     src="/gmail.png"
                     alt="gmail"
@@ -203,6 +178,30 @@ const Navbar = () => {
                     height={50}
                     className="w-6 h-6 grayscale hover:grayscale-0 cursor-pointer transition-all duration-300 hover:scale-120"
                 />
+            </div> */}
+
+            {/* Menu */}
+            <div className="hidden md:flex gap-8">
+                <ul className="flex items-center gap-16 font-inter">
+                    <li 
+                        ref={(el) => { menuRefs.current[0] = el; }}
+                        className="font-medium cursor-pointer text-gray-300 hover:text-white transition-colors duration-300 grayscale-0"
+                    >
+                        Tales of the City
+                    </li>
+                    <li 
+                        ref={(el) => { menuRefs.current[1] = el; }}
+                        className="font-medium cursor-pointer text-gray-300 hover:text-white transition-colors duration-300 grayscale-0"
+                    >
+                        Studio
+                    </li>
+                    <li 
+                        ref={(el) => { menuRefs.current[2] = el; }}
+                        className="font-medium cursor-pointer text-gray-300 hover:text-white transition-colors duration-300 grayscale-0"
+                    >
+                        Reach me
+                    </li>
+                </ul>
             </div>
         </nav>
     );
