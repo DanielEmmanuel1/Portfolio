@@ -409,7 +409,7 @@ const Hero = () => {
             </div>
 
             <div ref={introTextRef} className="absolute bottom-[-20px] left-60 cursor-pointer hidden md:block">
-                <div className="text-center font-architects-daughter text-2xl font-bold w-[500px]">
+                <div className="text-center font-sans-serif font-extralight text-xl w-[480px]">
                     Hi, I&apos;m Deborah
                     <Image
                         ref={debbyIconRef}
@@ -419,7 +419,7 @@ const Hero = () => {
                         height={40}
                         className="inline-block mx-2 align-middle"
                     />
-                    , a passionate <span className="text-[#cfab8d]">Content </span>creator and  <span className="text-[#33A1E0]">storyteller</span> who turns ideas into <span className="text-amber-400">engaging</span> content, balancing corporate life at Miva
+                    , a passionate <span className="text-white font-bold underline decoration-2 underline-offset-4">Content </span>creator and  <span className="text-white font-bold underline decoration-2 underline-offset-4">storyteller</span> who turns <span className="text-white font-bold decoration-2 underline-offset-4">ideas</span> into <span className="text-white font-bold underline decoration-2 underline-offset-4">engaging</span> content, balancing corporate life at Miva
                     <Image
                         ref={mivaIconRef}
                         src="/mivaa.png"
@@ -435,7 +435,7 @@ const Hero = () => {
             {/* Mobile Intro Text - Smaller */}
             <div 
                 ref={mobileIntroTextRef}
-                className="block md:hidden mt-4 text-center font-architects-daughter text-sm md:text-base font-bold max-w-[300px] md:max-w-[400px] text-gray-400 leading-relaxed mx-auto"
+                className="block md:hidden mt-4 text-center font-sans-serif text-md md:text-base font-light max-w-[350px] md:max-w-[400px] text-gray-400 leading-relaxed mx-auto"
             >
                 Hi, I&apos;m Deborah
                 <Image
@@ -445,7 +445,7 @@ const Hero = () => {
                     height={24}
                     className="inline-block mx-1 align-middle w-12 h-5 md:w-16 md:h-6"
                 />
-                , a passionate <span className="text-[#CFAB8D]">Content </span>creator and <span className="text-[#33A1E0]">storyteller</span> who turns <span className="text-red-400">idea</span> into <span className="text-amber-300">engaging</span> content, balancing corporate life at Miva
+                , a passionate <span className="text-white font-bold underline decoration-2 underline-offset-4">Content </span>creator and <span className="text-white font-bold underline decoration-2 underline-offset-4">storyteller</span> who turns <span className="text-white font-bold underline decoration-2 underline-offset-4">idea</span> into <span className="text-white font-bold underline decoration-2 underline-offset-4">engaging</span> content, balancing corporate life at Miva
                 <Image
                     src="/mivaa.png"
                     alt="Miva"
