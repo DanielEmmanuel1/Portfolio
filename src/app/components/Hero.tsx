@@ -26,6 +26,7 @@ const Hero = () => {
 
     // Mobile container ref for animation
     const mobileContainerRef = useRef<HTMLDivElement>(null);
+    const mobileIntroTextRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const scrapd = scrapdRef.current;
@@ -38,6 +39,7 @@ const Hero = () => {
         const card3 = card3Ref.current;
         const cardContainer = cardContainerRef.current;
         const mobileContainer = mobileContainerRef.current;
+        const mobileIntroText = mobileIntroTextRef.current;
 
         if (!scrapd || !scrape || !scrappb || !card1 || !card2 || !card3) return;
 
@@ -70,6 +72,24 @@ const Hero = () => {
                 ease: "power2.out",
                 stagger: 0.3,
                 delay: 0.3
+            });
+        }
+
+        // MOBILE INTRO TEXT ANIMATION: Slide up from bottom
+        if (mobileIntroText && window.innerWidth < 768) {
+            // Set initial state for mobile intro text
+            gsap.set(mobileIntroText, {
+                y: 100,
+                opacity: 0
+            });
+
+            // Animate mobile intro text with smooth slide up - matching navbar timing
+            gsap.to(mobileIntroText, {
+                y: 0,
+                opacity: 1,
+                duration: 1.2,
+                ease: "back.out(2)",
+                delay: 0.3 // Same delay as navbar
             });
         }
 
@@ -413,7 +433,10 @@ const Hero = () => {
             </div>
 
             {/* Mobile Intro Text - Smaller */}
-            <div className="block md:hidden mt-4 text-center font-architects-daughter text-sm md:text-base font-bold max-w-[300px] md:max-w-[400px] text-gray-400 leading-relaxed mx-auto">
+            <div 
+                ref={mobileIntroTextRef}
+                className="block md:hidden mt-4 text-center font-architects-daughter text-sm md:text-base font-bold max-w-[300px] md:max-w-[400px] text-gray-400 leading-relaxed mx-auto"
+            >
                 Hi, I&apos;m Deborah
                 <Image
                     src="/debby.png"
