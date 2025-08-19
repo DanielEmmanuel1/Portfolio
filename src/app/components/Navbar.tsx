@@ -344,7 +344,7 @@ const Navbar = () => {
             {/* Mobile Menu Full Screen */}
             <div
                 ref={mobileMenuRef}
-                className="md:hidden fixed inset-0 bg-black z-50 opacity-0 scale-95 flex items-center justify-center"
+                className="md:hidden fixed inset-0 bg-[#0a0a0a] z-50 opacity-0 scale-95 flex items-center justify-center"
             >
                 <div className="flex flex-col items-center justify-center h-full w-full p-8 relative">
                     {/* Close Button */}
@@ -384,27 +384,27 @@ const Navbar = () => {
                             />
                     </div>
 
-                    {/* Mobile Menu Items - Centered */}
-                    <ul className="flex flex-col gap-8 font-inter text-center">
-                        <li
-                            ref={(el) => { mobileMenuItemsRef.current[0] = el; }}
-                            className="font-medium cursor-pointer text-white hover:text-gray-300 transition-colors duration-300 text-4xl md:text-5xl py-4"
-                        >
-                            Tales of the City.
-                        </li>
-                        <li
-                            ref={(el) => { mobileMenuItemsRef.current[1] = el; }}
-                            className="font-medium cursor-pointer text-gray-400 hover:text-white transition-colors duration-300 text-4xl md:text-5xl py-4"
-                        >
-                            Studio.
-                        </li>
-                        <li
-                            ref={(el) => { mobileMenuItemsRef.current[2] = el; }}
-                            className="font-medium cursor-pointer text-gray-400 hover:text-white transition-colors duration-300 text-4xl md:text-5xl py-4"
-                        >
-                            Reach me.
-                        </li>
-                    </ul>
+                                         {/* Mobile Menu Items - Centered */}
+                     <ul className="flex flex-col gap-8 font-inter text-center">
+                         <li
+                             ref={(el) => { mobileMenuItemsRef.current[0] = el; }}
+                             className="font-medium cursor-pointer text-white hover:text-gray-300 transition-colors duration-300 text-4xl md:text-5xl py-4"
+                         >
+                             Tales of the City.
+                         </li>
+                         <li
+                             ref={(el) => { mobileMenuItemsRef.current[1] = el; }}
+                             className="font-medium cursor-pointer text-gray-400 hover:text-white transition-colors duration-300 text-4xl md:text-5xl py-4"
+                         >
+                             Studio.
+                         </li>
+                         <li
+                             ref={(el) => { mobileMenuItemsRef.current[2] = el; }}
+                             className="font-medium cursor-pointer text-gray-400 hover:text-white transition-colors duration-300 text-4xl md:text-5xl py-4"
+                         >
+                             Reach me.
+                         </li>
+                     </ul>
 
                     {/* Mobile Social Links - Bottom */}
                     <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">

@@ -48,7 +48,7 @@ const Hero = () => {
                 y: 50,
                 opacity: 0
             });
-            
+
             gsap.set([scrapd, scrape, card1], {
                 y: 30,
                 opacity: 0
@@ -410,6 +410,27 @@ const Hero = () => {
                     />
                     University with creative pursuits.
                 </div>
+            </div>
+
+            {/* Mobile Intro Text - Smaller */}
+            <div className="block md:hidden mt-4 text-center font-architects-daughter text-sm md:text-base font-bold max-w-[300px] md:max-w-[400px] text-gray-400 leading-relaxed mx-auto">
+                Hi, I&apos;m Deborah
+                <Image
+                    src="/debby.png"
+                    alt="Deborah"
+                    width={60}
+                    height={24}
+                    className="inline-block mx-1 align-middle w-12 h-5 md:w-16 md:h-6"
+                />
+                , a passionate <span className="text-white">Content creator</span> and <span className="text-white">storyteller</span> who turns <span className="text-white">idea</span> into <span className="text-white">engaging</span> content, balancing corporate life at Miva
+                <Image
+                    src="/mivaa.png"
+                    alt="Miva"
+                    width={18}
+                    height={24}
+                    className="inline-block mx-1 align-middle w-4 h-5 md:w-5 md:h-6"
+                />
+                University with creative pursuits.
             </div>
 
             {/* poeams */}
