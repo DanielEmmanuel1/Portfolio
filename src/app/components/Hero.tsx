@@ -24,6 +24,9 @@ const Hero = () => {
     const poemTextRef = useRef<HTMLDivElement>(null);
     const claudeIconRef = useRef<HTMLImageElement>(null);
 
+    // Mobile container ref for animation
+    const mobileContainerRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
         const scrapd = scrapdRef.current;
         const scrape = scrapeRef.current;
@@ -34,10 +37,43 @@ const Hero = () => {
         const card2 = card2Ref.current;
         const card3 = card3Ref.current;
         const cardContainer = cardContainerRef.current;
+        const mobileContainer = mobileContainerRef.current;
 
         if (!scrapd || !scrape || !scrappb || !card1 || !card2 || !card3) return;
 
-        // 1. LETTERS ANIMATION: Smooth upscale flow from left to right
+        // MOBILE ANIMATION: Slide up from bottom with smooth easing
+        if (mobileContainer) {
+            // Set initial state for mobile container and its children
+            gsap.set(mobileContainer, {
+                y: 50,
+                opacity: 0
+            });
+            
+            gsap.set([scrapd, scrape, card1], {
+                y: 30,
+                opacity: 0
+            });
+
+            // Animate mobile container first
+            gsap.to(mobileContainer, {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+                ease: "power2.out"
+            });
+
+            // Then animate the children with stagger
+            gsap.to([scrapd, scrape, card1], {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                ease: "power2.out",
+                stagger: 0.3,
+                delay: 0.3
+            });
+        }
+
+        // 1. LETTERS ANIMATION: Smooth upscale flow from left to right (Desktop only)
         gsap.set([scrapd, scrape, scrappb, scrapb, scrapy], {
             scale: 0.5,
             opacity: 0.3
@@ -234,18 +270,18 @@ const Hero = () => {
     }, []);
 
     return (
-        <div className="relative">
+        <div className="relative pt-10">
             {/* Letters Section - Mobile Stacked, Desktop Row */}
             <div className="relative flex justify-center items-center">
-                {/* Mobile: Stacked overlapping letters */}
-                <div className="md:hidden relative w-[300px] h-[400px]">
+                {/* Mobile: Stacked overlapping letters with slide-up animation */}
+                <div ref={mobileContainerRef} className="md:hidden relative w-[300px] h-[400px]">
                     <Image
                         ref={scrapdRef}
                         src="/scrapd.png"
                         alt="Hero"
                         width={270}
                         height={600}
-                        className="absolute top-0 left-0 transform -rotate-10 cursor-pointer hover:scale-150 w-[150px] h-[150px] object-cover"
+                        className="absolute top-0 left-0 transform -rotate-10 cursor-pointer w-[150px] h-[150px] object-cover"
                         style={{ zIndex: 30 }}
                     />
                     <Image
@@ -254,9 +290,22 @@ const Hero = () => {
                         alt="Hero"
                         width={270}
                         height={600}
-                        className="absolute md:top-8 md:right-0 bottom-0 right-0 transform -rotate-5 cursor-pointer hover:scale-150 w-[150px] h-[150px] object-cover"
+                        className="absolute md:top-8 md:right-0 bottom-0 right-0 transform -rotate-5 cursor-pointer w-[150px] h-[150px] object-cover"
                         style={{ zIndex: 20 }}
                     />
+
+                    {/* Mobile: Stacked overlapping cards */}
+                    <div className="md:hidden relative w-[200px] h-[220px]">
+                        <Image
+                            ref={card1Ref}
+                            src="/blouse.png"
+                            alt="Card 1"
+                            width={280}
+                            height={320}
+                            className="absolute top-28 left-20 transform rotate-10 shadow-lg w-full h-full object-cover"
+                            style={{ zIndex: 10 }}
+                        />
+                    </div>
                 </div>
 
                 {/* Desktop: Row layout */}
@@ -306,36 +355,6 @@ const Hero = () => {
 
             {/* Stacked Cards - Mobile Stacked, Desktop Single */}
             <div className="flex justify-center items-center mt-8 md:mt-[-90px]">
-                {/* Mobile: Stacked overlapping cards */}
-                <div className="md:hidden relative w-[280px] h-[320px]">
-                    <Image
-                        ref={card1Ref}
-                        src="/luv.png"
-                        alt="Card 1"
-                        width={280}
-                        height={320}
-                        className="absolute top-0 left-0 transform -rotate-8 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg w-full h-full object-cover"
-                        style={{ zIndex: 30 }}
-                    />
-                    <Image
-                        ref={card2Ref}
-                        src="/gele.png"
-                        alt="Card 2"
-                        width={280}
-                        height={320}
-                        className="absolute top-4 left-2 transform -rotate-12 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg w-[90%] h-[90%] object-cover"
-                        style={{ zIndex: 20 }}
-                    />
-                    <Image
-                        ref={card3Ref}
-                        src="/blouse.png"
-                        alt="Card 3"
-                        width={280}
-                        height={320}
-                        className="absolute top-8 left-4 transform -rotate-16 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg w-[80%] h-[80%] object-cover"
-                        style={{ zIndex: 10 }}
-                    />
-                </div>
 
                 {/* Desktop: Original stacked cards */}
                 <div ref={cardContainerRef} className="hidden md:block relative w-[550px] h-[600px] cursor-pointer group">
@@ -345,7 +364,7 @@ const Hero = () => {
                         alt="Card 1"
                         width={550}
                         height={600}
-                        className="transform -rotate-5 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg absolute top-0 left-0 w-full h-full object-cover"
+                        className="transform -rotate-5 grayscale-100 hover:grayscale-0 shadow-lg absolute top-0 left-0 w-full h-full object-cover"
                         style={{ zIndex: 10 }}
                     />
                     <Image
@@ -354,7 +373,7 @@ const Hero = () => {
                         alt="Card 2"
                         width={550}
                         height={600}
-                        className="transform -rotate-12 hover:-rotate-10 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg absolute top-0 left-0 translate-y-[-8px] scale-95 w-full h-full object-cover"
+                        className="transform -rotate-12 hover:-rotate-10 grayscale-100 hover:grayscale-0 shadow-lg absolute top-0 left-0 translate-y-[-8px] scale-95 w-full h-full object-cover"
                         style={{ zIndex: 20 }}
                     />
                     <Image
@@ -363,7 +382,7 @@ const Hero = () => {
                         alt="Card 3"
                         width={550}
                         height={600}
-                        className="transform -rotate-18 grayscale-100 hover:grayscale-0 rounded-lg shadow-lg absolute top-0 left-0 translate-y-[-16px] scale-90 w-full h-full object-cover"
+                        className="transform -rotate-18 grayscale-100 hover:grayscale-0 shadow-lg absolute top-0 left-0 translate-y-[-16px] scale-90 w-full h-full object-cover"
                         style={{ zIndex: 30 }}
                     />
                 </div>
