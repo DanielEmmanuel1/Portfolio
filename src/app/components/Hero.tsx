@@ -130,6 +130,7 @@ const Hero = () => {
             });
         }
 
+        // Toggle panel state
         if (expandedImage === imageId) {
             console.log("Closing panel for image:", imageId);
             closePanel();
@@ -400,86 +401,93 @@ const Hero = () => {
                     return;
                 }
                 
-                console.log("Starting carousel");
-                carouselStateRef.current.isActive = true;
-
-                // Remove grayscale from all images
-                gsap.to(images, {
-                    filter: "grayscale(0%)",
-                    duration: 0.3,
-                    ease: "power2.out"
-                });
-
-                // Use the stored current index from carouselStateRef
-                console.log("Starting carousel with current index:", carouselStateRef.current.currentIndex);
-                
-                // Set the current image to top and remove grayscale
-                gsap.set(images[carouselStateRef.current.currentIndex], { 
-                    zIndex: 50,
-                    filter: "grayscale(0%)"
-                });
-                
-                // Set other images to lower z-index and grayscale
-                images.forEach((img, index) => {
-                    if (index !== carouselStateRef.current.currentIndex) {
-                        gsap.set(img, { 
-                            zIndex: 10 + index,
-                            filter: "grayscale(100%)"
-                        });
-                    }
-                });
-
-                carouselStateRef.current.interval = setInterval(() => {
-                    // Don't continue carousel if panel is open
-                    if (expandedImage) {
-                        console.log("Carousel stopped - panel opened");
-                        if (carouselStateRef.current.interval) {
-                            clearInterval(carouselStateRef.current.interval);
-                            carouselStateRef.current.interval = null;
-                        }
-                        carouselStateRef.current.isActive = false;
+                // Add a small delay to prevent immediate restart
+                setTimeout(() => {
+                    if (expandedImage || carouselStateRef.current.isActive) {
                         return;
                     }
+                    
+                    console.log("Starting carousel");
+                    carouselStateRef.current.isActive = true;
 
-                    // Check again before starting animation
-                    if (expandedImage) return;
-
-                    // Animate current image out
-                    gsap.to(images[carouselStateRef.current.currentIndex], {
-                        x: -100,
-                        opacity: 0,
-                        scale: 0.8,
-                        duration: 2.0,
+                    // Remove grayscale from all images
+                    gsap.to(images, {
+                        filter: "grayscale(0%)",
+                        duration: 0.3,
                         ease: "power2.out"
                     });
 
-                    // Move to next image
-                    carouselStateRef.current.currentIndex = (carouselStateRef.current.currentIndex + 1) % images.length;
-
-                    // Set up next image
-                    gsap.set(images[carouselStateRef.current.currentIndex], {
-                        x: 100,
-                        opacity: 0,
-                        scale: 0.8,
-                        zIndex: 50 // Ensure the next image is on top
+                    // Use the stored current index from carouselStateRef
+                    console.log("Starting carousel with current index:", carouselStateRef.current.currentIndex);
+                    
+                    // Set the current image to top and remove grayscale
+                    gsap.set(images[carouselStateRef.current.currentIndex], { 
+                        zIndex: 50,
+                        filter: "grayscale(0%)"
                     });
-
-                    // Animate next image in
-                    gsap.to(images[carouselStateRef.current.currentIndex], {
-                        x: 0,
-                        opacity: 1,
-                        scale: 1,
-                        duration: 1.0,
-                        ease: "power2.out"
-                    });
-
-                    // Set other images to lower z-index
+                    
+                    // Set other images to lower z-index and grayscale
                     images.forEach((img, index) => {
                         if (index !== carouselStateRef.current.currentIndex) {
-                            gsap.set(img, { zIndex: 10 + index });
+                            gsap.set(img, { 
+                                zIndex: 10 + index,
+                                filter: "grayscale(100%)"
+                            });
                         }
                     });
-                }, 3000);
+
+                    carouselStateRef.current.interval = setInterval(() => {
+                        // Don't continue carousel if panel is open
+                        if (expandedImage) {
+                            console.log("Carousel stopped - panel opened");
+                            if (carouselStateRef.current.interval) {
+                                clearInterval(carouselStateRef.current.interval);
+                                carouselStateRef.current.interval = null;
+                            }
+                            carouselStateRef.current.isActive = false;
+                            return;
+                        }
+
+                        // Check again before starting animation
+                        if (expandedImage) return;
+
+                        // Animate current image out
+                        gsap.to(images[carouselStateRef.current.currentIndex], {
+                            x: -100,
+                            opacity: 0,
+                            scale: 0.8,
+                            duration: 2.0,
+                            ease: "power2.out"
+                        });
+
+                        // Move to next image
+                        carouselStateRef.current.currentIndex = (carouselStateRef.current.currentIndex + 1) % images.length;
+
+                        // Set up next image
+                        gsap.set(images[carouselStateRef.current.currentIndex], {
+                            x: 100,
+                            opacity: 0,
+                            scale: 0.8,
+                            zIndex: 50 // Ensure the next image is on top
+                        });
+
+                        // Animate next image in
+                        gsap.to(images[carouselStateRef.current.currentIndex], {
+                            x: 0,
+                            opacity: 1,
+                            scale: 1,
+                            duration: 1.0,
+                            ease: "power2.out"
+                        });
+
+                        // Set other images to lower z-index
+                        images.forEach((img, index) => {
+                            if (index !== carouselStateRef.current.currentIndex) {
+                                gsap.set(img, { zIndex: 10 + index });
+                            }
+                        });
+                    }, 3000);
+                }, 100); // Small delay to prevent immediate restart
             };
 
             const stopCarousel = () => {
