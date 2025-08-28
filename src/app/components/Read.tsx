@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 const Read = () => {
     const [isHovered, setIsHovered] = useState(false);
     const carouselRef = useRef<HTMLDivElement>(null);
+    const positionRef = useRef(0);
     
     const books = [
         { src: "/half-yellow.png", alt: "Half Yellow" },
@@ -18,27 +19,26 @@ const Read = () => {
     ];
 
     useEffect(() => {
-        if (!carouselRef.current || isHovered) return;
+        if (!carouselRef.current) return;
 
         const carousel = carouselRef.current;
         let animationId: number;
-        let position = 0;
         const speed = 1; // pixels per frame
 
         const animate = () => {
             if (!isHovered) {
-                position -= speed;
+                positionRef.current -= speed;
                 
                 // Calculate the width of one complete set of items
                 const itemWidth = 500 + 16; // width + gap
                 const totalWidth = itemWidth * books.length;
                 
                 // When we've moved one complete set, reset to show the duplicate set
-                if (position <= -totalWidth) {
-                    position = 0;
+                if (positionRef.current <= -totalWidth) {
+                    positionRef.current = 0;
                 }
                 
-                carousel.style.transform = `translateX(${position}px)`;
+                carousel.style.transform = `translateX(${positionRef.current}px)`;
             }
             animationId = requestAnimationFrame(animate);
         };
